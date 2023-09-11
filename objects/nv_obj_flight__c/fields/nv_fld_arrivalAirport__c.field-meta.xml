@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>nv_fld_arrivalAirport__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Arrival airport from the flight</description>
+    <externalId>false</externalId>
+    <label>Arrival Airport</label>
+    <referenceTo>nv_obj_Airport__c</referenceTo>
+    <relationshipLabel>Flights (Arrival Airport)</relationshipLabel>
+    <relationshipName>ArrivalFlights</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

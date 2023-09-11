@@ -1,0 +1,53 @@
+<template>
+    <lightning-card title="Nuvolar Flights" icon-name="custom:custom20">
+        <div class = "slds-m-around_medium">
+            <lightning-input type="search" onchange={updateFilter} class="slds-m-bottom_small" label="IATA Filter"></lightning-input>
+            <lightning-layout pull-to-boundary="medium">
+                <lightning-layout-item flexibility="auto" padding="horizontal-medium">
+                    <lightning-combobox name="ArrivalAirports"
+                                        label="Arrival Airport"
+                                        placeholder="Select Airport..."
+                                        options={airportOptions}
+                                        value={arrivalAirport}
+                                        onchange={handleArrivalChange}
+                                        >
+                    </lightning-combobox>
+                    <lightning-input type="text" label="Arrival Airport" value={selectedArrivalName} readonly></lightning-input>
+                </lightning-layout-item> 
+
+                <lightning-layout-item flexibility="auto" padding="horizontal-medium">
+                    <lightning-combobox name="DepartureAirports"
+                                        label="Departure Airport"
+                                        placeholder="Select Airport..."
+                                        options={airportOptions}
+                                        value={departureAirport}
+                                        onchange={handleDepartureChange}
+                                        >
+                    </lightning-combobox>
+                    <lightning-input type="text" label="Departure Airport" value={selectedDepartureName} readonly></lightning-input>
+                </lightning-layout-item>
+            </lightning-layout>
+
+            <lightning-layout horizontal-align="center">
+                <lightning-layout-item flexibility="auto" padding="around-small">
+                    <lightning-button variant="brand" onclick={handleSaveFlight} label="Save Flight"></lightning-button>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="around-small">
+                    <lightning-button variant="destructive" onclick={handleClear} label="Clear"></lightning-button>
+                </lightning-layout-item>
+            </lightning-layout>
+
+            <lightning-layout horizontal-align="center">
+                <lightning-datatable
+                    key-field="flightName"
+                    data={flightsData}
+                    columns={flightsColumns}
+                    show-row-number-column
+                    hide-checkbox-column
+                    >
+                </lightning-datatable>
+            </lightning-layout>
+
+        </div>
+    </lightning-card>
+</template>
